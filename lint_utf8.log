@@ -1,0 +1,158 @@
+﻿
+> temp-app@0.1.0 lint
+> eslint
+
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\app\(auth)\login\page.tsx
+  7:10  warning  'ArrowLeft' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\app\(dashboard)\dashboard\orders\[id]\page.tsx
+  12:9  warning  'router' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\app\(dashboard)\dashboard\orders\page.tsx
+    7:16   warning  'CardContent' is defined but never used                          @typescript-eslint/no-unused-vars
+    9:10   warning  'STATUS_COLORS' is defined but never used                        @typescript-eslint/no-unused-vars
+   13:10   warning  'OrderDetail' is defined but never used                          @typescript-eslint/no-unused-vars
+   15:10   warning  'Order' is defined but never used                                @typescript-eslint/no-unused-vars
+   82:98   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   82:112  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  117:33   warning  'snapshot' is defined but never used                             @typescript-eslint/no-unused-vars
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\app\(dashboard)\dashboard\page.tsx
+    6:10  warning  'mockOrderUpdates' is defined but never used                     @typescript-eslint/no-unused-vars
+  134:63  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  134:77  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\app\(dashboard)\dashboard\settings\page.tsx
+   4:29  warning  'CardHeader' is defined but never used    @typescript-eslint/no-unused-vars
+   4:41  warning  'CardTitle' is defined but never used     @typescript-eslint/no-unused-vars
+  18:59  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  79:52  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  79:76  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\app\(marketing)\layout.tsx
+  2:10  warning  'LandingHero' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\app\actions\orders.ts
+  64:15  warning  '_' is assigned a value but never used           @typescript-eslint/no-unused-vars
+  64:18  warning  'created_at' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  64:60  error    Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\components\layout\Sidebar.tsx
+  5:69  warning  'ChevronDown' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\components\orders\NewOrderForm.tsx
+  52:26  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\components\orders\NewOrderForm.tsx:52:26
+  50 |       brief: '',
+  51 |       // Default to today
+> 52 |       due_date: new Date(Date.now()).toISOString().split('T')[0],
+     |                          ^^^^^^^^^^ Cannot call impure function
+  53 |     }
+  54 |   });
+  55 |  react-hooks/purity
+  60:30  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+  61:34  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\components\orders\OrderDetail.tsx
+   3:17  warning  'useState' is defined but never used           @typescript-eslint/no-unused-vars
+   6:10  warning  'Button' is defined but never used             @typescript-eslint/no-unused-vars
+  12:10  warning  'OrderStatus' is defined but never used        @typescript-eslint/no-unused-vars
+  13:10  warning  'Textarea' is defined but never used           @typescript-eslint/no-unused-vars
+  18:11  warning  'addToast' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\components\ui\DatePicker.tsx
+  12:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\components\ui\Input.tsx
+  4:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\components\ui\Modal.tsx
+  2:10  warning  'cn' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\components\ui\Textarea.tsx
+  4:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\components\ui\animated-circular-progress-bar.tsx
+  8:3  warning  'min' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\components\ui\sparkles.tsx
+   2:24  warning  'useMemo' is defined but never used       @typescript-eslint/no-unused-vars
+  83:33  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\context\LanguageContext.tsx
+  182:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\context\LanguageContext.tsx:182:7
+  180 |     const savedLang = localStorage.getItem('language') as Language | null;
+  181 |     if (savedLang) {
+> 182 |       setLanguage(savedLang);
+      |       ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  183 |     } else {
+  184 |       // Check browser pref
+  185 |       if (navigator.language.startsWith('es')) {  react-hooks/set-state-in-effect
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\context\ProfileContext.tsx
+  18:25  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\context\ProfileContext.tsx:18:25
+  16 |
+  17 |   useEffect(() => {
+> 18 |     if (initialProfile) setProfile(initialProfile);
+     |                         ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  19 |   }, [initialProfile]);
+  20 |
+  21 |   const updateProfile = async (updates: Partial<Profile>) => {  react-hooks/set-state-in-effect
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\context\ThemeContext.tsx
+  21:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\context\ThemeContext.tsx:21:7
+  19 |     const savedTheme = localStorage.getItem('theme') as Theme | null;
+  20 |     if (savedTheme) {
+> 21 |       setTheme(savedTheme);
+     |       ^^^^^^^^ Avoid calling setState() directly within an effect
+  22 |       if (savedTheme === 'dark') {
+  23 |         document.documentElement.classList.add('dark-theme');
+  24 |       }  react-hooks/set-state-in-effect
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\context\ToastContext.tsx
+  24:16  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\context\ToastContext.tsx:24:16
+  22 |
+  23 |   const addToast = (toast: Omit<ToastMessage, 'id'>) => {
+> 24 |     const id = Math.random().toString(36).substring(2, 9);
+     |                ^^^^^^^^^^^^^ Cannot call impure function
+  25 |     setToasts((prev) => [...prev, { ...toast, id }]);
+  26 |     setTimeout(() => removeToast(id), 5000);
+  27 |   };  react-hooks/purity
+
+C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude Code\apps\fullstack-client-dashboard\src\lib\supabase\middleware.ts
+  18:48  warning  'options' is defined but never used  @typescript-eslint/no-unused-vars
+
+Ô£û 42 problems (19 errors, 23 warnings)
+

@@ -1,0 +1,32 @@
+﻿
+> temp-app@0.1.0 build
+> next build
+
+Ôû▓ Next.js 16.2.1 (Turbopack)
+- Environments: .env.local
+
+node.exe : ÔÜá The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: 
+https://nextjs.org/docs/messages/middleware-to-proxy
+En línea: 1 Carácter: 1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ÔÜá The "middle...leware-to-proxy:String) [], RemoteExcep 
+   tion
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  Creating an optimized production build ...
+Ô£ô Compiled successfully in 3.9s
+  Running TypeScript ...
+  Finished TypeScript in 4.5s ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/14) ...
+Error occurred prerendering page "/dashboard/billing". Read more: 
+https://nextjs.org/docs/messages/prerender-error
+TypeError: Cannot read properties of null (reading 'avatar_url')
+    at <unknown> (C:\Users\marco\Documents\Technology\VibeCoding Course Gemini Claude 
+Code\apps\fullstack-client-dashboard\.next\server\chunks\ssr\_0r2q0qp._.js:1:4803) {
+  digest: '1933527375'
+}
+Export encountered an error on /(dashboard)/dashboard/billing/page: /dashboard/billing, exiting the 
+build.
+Ô¿» Next.js build worker exited with code: 1 and signal: null
