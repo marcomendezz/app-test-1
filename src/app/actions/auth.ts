@@ -35,7 +35,7 @@ export async function signup(formData: FormData) {
       data: {
         full_name,
       },
-      emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://willowy-snickerdoodle-00f930.netlify.app'}/auth/callback`,
+      emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://app-test-1.netlify.app'}/auth/callback`,
     },
   });
 
