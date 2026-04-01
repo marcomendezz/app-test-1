@@ -1,21 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { mockOrderUpdates } from '@/data/mock';
-import { Button } from '@/components/ui/Button';
 import { STATUS_COLORS, STATUS_LABELS } from '@/lib/constants';
 import { format } from 'date-fns';
 import { useOrders } from '@/context/OrdersContext';
-import { useToast } from '@/context/ToastContext';
 import { useLanguage } from '@/context/LanguageContext';
-import { OrderStatus } from '@/types';
-import { Textarea } from '@/components/ui/Textarea';
 
 export function OrderDetail({ id, isModal = false }: { id: string, isModal?: boolean }) {
   const { orders } = useOrders();
   const { t } = useLanguage();
-  const { addToast } = useToast();
 
   const order = orders.find((o) => o.id === id);
 

@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { mockOrderUpdates } from '@/data/mock';
 import { Plus } from 'lucide-react';
 import Link from 'next/link';
 import { format } from 'date-fns';

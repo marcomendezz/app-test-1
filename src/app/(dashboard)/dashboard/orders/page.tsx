@@ -4,15 +4,14 @@ import React, { useState } from 'react';
 import { Plus, Search } from 'lucide-react';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
-import { Card, CardContent } from '@/components/ui/Card';
+import { Card } from '@/components/ui/Card';
 import { format } from 'date-fns';
-import { STATUS_COLORS, STATUS_LABELS } from '@/lib/constants';
+import { STATUS_LABELS } from '@/lib/constants';
 import { useOrders } from '@/context/OrdersContext';
 import { Modal } from '@/components/ui/Modal';
 import { NewOrderForm } from '@/components/orders/NewOrderForm';
-import { OrderDetail } from '@/components/orders/OrderDetail';
 import { useLanguage } from '@/context/LanguageContext';
-import { Order, OrderStatus } from '@/types';
+import { OrderStatus } from '@/types';
 import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
 import { useRouter } from 'next/navigation';
 
@@ -114,7 +113,7 @@ export default function OrdersPage() {
                   </div>
                   
                   <Droppable droppableId={colId}>
-                    {(provided, snapshot) => (
+                    {(provided) => (
                       <div
                         ref={provided.innerRef}
                         {...provided.droppableProps}

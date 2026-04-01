@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import Link from 'next/link';
 import { login } from '@/app/actions/auth';
-import { ArrowLeft } from 'lucide-react';
+
 import { useState, useTransition } from 'react';
 
 export default function LoginPage() {

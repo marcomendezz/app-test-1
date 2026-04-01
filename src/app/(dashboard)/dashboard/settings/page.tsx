@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useState, useCallback } from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/Card';
+import { Card, CardContent, CardFooter } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Modal } from '@/components/ui/Modal';
@@ -14,8 +14,19 @@ import { useLanguage } from '@/context/LanguageContext';
 import { useTheme } from '@/context/ThemeContext';
 import Cropper from 'react-easy-crop';
 
+function safeAvatarUrl(url: string | undefined): string {
+  if (!url) return 'https://i.pravatar.cc/150';
+  // Allow data:image URIs (from our own cropper) and https URLs only
+  if (url.startsWith('data:image/')) return url;
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol === 'https:' || parsed.protocol === 'http:') return url;
+  } catch { /* invalid URL */ }
+  return 'https://i.pravatar.cc/150';
+}
+
 // Helper to convert cropped area to base64
-const getCroppedImg = async (imageSrc: string, pixelCrop: any): Promise<string> => {
+const getCroppedImg = async (imageSrc: string, pixelCrop: { x: number; y: number; width: number; height: number }): Promise<string> => {
   const image = new Image();
   image.src = imageSrc;
   await new Promise((resolve) => { image.onload = resolve; });
@@ -43,7 +54,7 @@ export default function SettingsPage() {
   const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
-  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState<{ x: number; y: number; width: number; height: number } | null>(null);
 
   const { register, handleSubmit, formState: { errors, isSubmitting, isDirty } } = useForm<ProfileInput>({
     resolver: zodResolver(profileSchema),
@@ -67,16 +78,29 @@ export default function SettingsPage() {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImageSrc(reader.result as string);
-      };
-      reader.readAsDataURL(file);
+    if (!file) return;
+
+    const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+    const MAX_SIZE = 5 * 1024 * 1024; // 5 MB
+
+    if (!ALLOWED_TYPES.includes(file.type)) {
+      addToast({ title: 'Invalid file type', description: 'Please upload a JPEG, PNG, WebP, or GIF image.', type: 'error' });
+      return;
     }
+
+    if (file.size > MAX_SIZE) {
+      addToast({ title: 'File too large', description: 'Maximum file size is 5 MB.', type: 'error' });
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImageSrc(reader.result as string);
+    };
+    reader.readAsDataURL(file);
   };
 
-  const onCropComplete = useCallback((croppedArea: any, croppedAreaPixels: any) => {
+  const onCropComplete = useCallback((_croppedArea: { x: number; y: number; width: number; height: number }, croppedAreaPixels: { x: number; y: number; width: number; height: number }) => {
     setCroppedAreaPixels(croppedAreaPixels);
   }, []);
 
@@ -107,7 +131,7 @@ export default function SettingsPage() {
             <CardContent className="space-y-4 pt-6">
               <div className="flex items-center space-x-6">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={profile.avatar_url || 'https://i.pravatar.cc/150'} alt="Avatar" className="h-16 w-16 rounded-full border border-gray-200 object-cover" />
+                <img src={safeAvatarUrl(profile.avatar_url)} alt="Avatar" className="h-16 w-16 rounded-full border border-gray-200 object-cover" />
                 <input 
                   type="file" 
                   accept="image/*" 

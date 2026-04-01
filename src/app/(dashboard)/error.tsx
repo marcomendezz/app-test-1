@@ -11,7 +11,9 @@ export default function DashboardError({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error(error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error(error);
+    }
   }, [error]);
 
   return (
@@ -23,7 +25,7 @@ export default function DashboardError({
       </div>
       <h2 className="text-2xl font-bold text-[#37352F] mb-2">Failed to load content</h2>
       <p className="text-[#91918E] max-w-md mb-8">
-        We encountered an error while loading your dashboard data. {error.message}
+        We encountered an error while loading your dashboard data. Please try again or contact support if the issue persists.
       </p>
       <Button onClick={() => reset()} className="bg-black text-white hover:bg-black/80">
         Try again

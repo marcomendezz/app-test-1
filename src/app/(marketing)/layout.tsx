@@ -1,5 +1,4 @@
 import { MarketingNavbar } from '@/components/marketing/MarketingNavbar';
-import { LandingHero } from '@/components/marketing/LandingHero';
 
 export default function MarketingLayout({
   children,

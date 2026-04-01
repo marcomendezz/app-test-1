@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode } from 'react';
 import { Profile } from '@/types';
 import { updateProfile as updateDbProfile } from '@/app/actions/profile';
 
@@ -12,20 +12,25 @@ interface ProfileContextType {
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
 
 export function ProfileProvider({ children, initialProfile }: { children: ReactNode, initialProfile?: Profile | null }) {
+  // Use initialProfile's id as the key for state reset when server data changes
   const [profile, setProfile] = useState<Profile>(initialProfile as Profile);
+  const [prevInitialId, setPrevInitialId] = useState(initialProfile?.id);
 
-  useEffect(() => {
-    if (initialProfile) setProfile(initialProfile);
-  }, [initialProfile]);
+  // Sync from server without useEffect (React recommended pattern)
+  if (initialProfile && initialProfile.id !== prevInitialId) {
+    setProfile(initialProfile);
+    setPrevInitialId(initialProfile.id);
+  }
 
   const updateProfile = async (updates: Partial<Profile>) => {
-    // Optimistic update
+    const snapshot = { ...profile };
     setProfile((prev) => ({ ...prev, ...updates, updated_at: new Date().toISOString() }));
-    
+
     try {
       await updateDbProfile(updates);
-    } catch (error) {
-      console.error('Failed to update profile', error);
+    } catch {
+      setProfile(snapshot);
+      if (process.env.NODE_ENV === 'development') console.error('Failed to update profile — rolled back');
     }
   };
 

@@ -2,7 +2,17 @@
 
 import Link from 'next/link';
 import { NAV_ITEMS } from '@/lib/constants';
-import { LayoutDashboard, ShoppingCart, Settings, CreditCard, Bell, ChevronDown, Command, LogOut } from 'lucide-react';
+import { LayoutDashboard, ShoppingCart, Settings, CreditCard, Bell, Command, LogOut } from 'lucide-react';
+
+function safeAvatarUrl(url: string | undefined): string {
+  if (!url) return 'https://i.pravatar.cc/150';
+  if (url.startsWith('data:image/')) return url;
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol === 'https:' || parsed.protocol === 'http:') return url;
+  } catch { /* invalid URL */ }
+  return 'https://i.pravatar.cc/150';
+}
 import { useProfile } from '@/context/ProfileContext';
 import { useLanguage } from '@/context/LanguageContext';
 import { usePathname } from 'next/navigation';
@@ -64,7 +74,7 @@ export function Sidebar() {
         <div className="flex items-center gap-1 px-2 py-2 rounded-xl hover:bg-black/5 text-[#37352F] transition-all group">
           <Link href="/dashboard/settings" className="w-8 h-8 rounded-full border border-black/10 overflow-hidden shrink-0 hover:opacity-80 transition-opacity">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={profile.avatar_url || 'https://i.pravatar.cc/150'} alt="Avatar" className="w-full h-full object-cover" />
+            <img src={safeAvatarUrl(profile.avatar_url)} alt="Avatar" className="w-full h-full object-cover" />
           </Link>
           
           <div className="flex-1" />

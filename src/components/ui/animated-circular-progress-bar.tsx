@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 export function AnimatedCircularProgressBar({
   max = 100,
   value = 0,
-  min = 0,
+  min: _min = 0,
   gaugePrimaryColor = "#000",
   gaugeSecondaryColor = "#f3f4f6",
   className,

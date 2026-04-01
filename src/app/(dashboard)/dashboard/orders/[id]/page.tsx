@@ -4,12 +4,10 @@ import React from 'react';
 import { Button } from '@/components/ui/Button';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { OrderDetail } from '@/components/orders/OrderDetail';
 
 export default function OrderDetailPageWrapper({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params);
-  const router = useRouter();
 
   return (
     <div className="max-w-4xl space-y-8">

@@ -48,8 +48,7 @@ export function NewOrderForm({ onClose }: { onClose: () => void }) {
       priority: 'Normal',
       word_count: 500,
       brief: '',
-      // Default to today
-      due_date: new Date(Date.now()).toISOString().split('T')[0],
+      due_date: '',
     }
   });
 
@@ -57,8 +56,8 @@ export function NewOrderForm({ onClose }: { onClose: () => void }) {
     addOrder({
       title: data.title,
       content_type: data.content_type,
-      status: data.status as any,
-      priority: data.priority as any,
+      status: data.status,
+      priority: data.priority,
       word_count: data.word_count,
       brief: data.brief,
       due_date: new Date(data.due_date).toISOString(),

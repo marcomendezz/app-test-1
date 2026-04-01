@@ -2,14 +2,14 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { format } from 'date-fns';
-import { DayPicker } from 'react-day-picker';
+import { DayPicker, type Matcher } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { CalendarIcon } from 'lucide-react';
 
 interface DatePickerProps {
   value: Date | undefined;
   onChange: (date: Date | undefined) => void;
-  disabled?: any;
+  disabled?: Matcher | Matcher[];
   placeholder?: string;
 }
 
